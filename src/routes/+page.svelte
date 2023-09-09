@@ -1,5 +1,7 @@
-<div class="hero min-h-screen bg-base-200">
-	<div class="hero-content">
+<div class="hero min-h-screen bg-base-200 overflow-hidden">
+	<h2 class="opacity-20 text-[20vh] absolute top-10 -left-1/4">&lt;developer/&gt</h2>
+	<h2 class="opacity-20 text-[20vh] absolute bottom-10 -right-1/4">&lt;developer/&gt</h2>
+	<div class="hero-content relative">
 		<div class="max-w-screen-lg">
 			<div>
 				<h1 class="text-5xl font-bold sm:inline mr-4">Abhay Raj Singh.</h1>
