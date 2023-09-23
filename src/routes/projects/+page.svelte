@@ -1,5 +1,3 @@
 <section class="pt-24">
-	<div>
-
-	</div>
+	<div class="min-h-screen">Hello</div>
 </section>
