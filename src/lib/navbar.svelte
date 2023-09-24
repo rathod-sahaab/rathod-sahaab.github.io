@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte'
 	import { PAGES } from '$lib/constants/pages'
 	import { afterNavigate } from '$app/navigation'
+	import { base } from '$app/paths'
 
 	let currentPath: string = PAGES[0].href
 
@@ -23,7 +24,7 @@
 		{#each PAGES as page}
 			<li class={currentPath === page.href ? 'text-3xl hover:scale-110' : 'hover:scale-125'}>
 				<h3>
-					<a href={page.href}>{page.name}</a>
+					<a href={base + page.href}>{page.name}</a>
 				</h3>
 			</li>
 		{/each}
