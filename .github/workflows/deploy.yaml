@@ -34,7 +34,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/porfolio-v3'
+          BASE_PATH: '/portfolio-v3'
         run: |
           pnpm run build
           touch build/.nojekyll
