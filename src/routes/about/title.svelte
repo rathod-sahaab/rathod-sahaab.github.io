@@ -1,8 +1,15 @@
+<script lang="ts">
+	let y: number = 0
+
+	$: develStyle = `transform: translateX(calc(50% - ${2 * y}px))`
+	$: loperStyle = `transform: translateX(calc(-50% + min(${2 * y}px, 50vw)))`
+</script>
+
 <div class="hero min-h-screen w-screen bg-base-100 relative overflow-hidden">
-	<h2 class="opacity-20 text-[20vmin] absolute top-10 right-0 translate-x-1/2">
+	<h2 class="opacity-20 text-[20vmin] absolute top-10 right-0" style={develStyle}>
 		&lt;developer/&gt
 	</h2>
-	<h2 class="opacity-20 text-[20vmin] absolute bottom-10 left-0 -translate-x-1/2">
+	<h2 class="opacity-20 text-[20vmin] absolute bottom-10 left-0" style={loperStyle}>
 		&lt;developer/&gt
 	</h2>
 	<div class="hero-content">
@@ -31,3 +38,5 @@
 		</div>
 	</div>
 </div>
+
+<svelte:window bind:scrollY={y} />
