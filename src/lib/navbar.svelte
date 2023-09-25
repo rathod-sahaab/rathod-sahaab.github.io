@@ -27,10 +27,9 @@
 		{#each PAGES as page}
 			<li class:active={currentPath === base + page.href}>
 				<h3>
-					<a
-						href={page.href[0] === '/' ? base + page.href : page.href}
-						target={'newTab' in page && page.newTab ? '_blank' : ''}>{page.name}</a
-					>
+					<a {...page} href={page.href[0] === '/' ? base + page.href : page.href}>
+						{page.name}
+					</a>
 				</h3>
 			</li>
 		{/each}
