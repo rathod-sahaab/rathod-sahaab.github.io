@@ -21,7 +21,7 @@
 		</span>
 	</div>
 	<p class="pt-2">
-		{milestone.description}
+		{@html milestone.description}
 	</p>
 	<p><slot /></p>
 </div>

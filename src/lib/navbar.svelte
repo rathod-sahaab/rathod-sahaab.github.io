@@ -1,4 +1,6 @@
 <script lang="ts">
+	let y: number = 0
+
 	import { onMount } from 'svelte'
 	import { PAGES } from '$lib/constants/pages'
 	import { afterNavigate } from '$app/navigation'
@@ -16,20 +18,33 @@
 
 <nav class="fixed top-0 left-1/2 -translate-x-1/2 p-4 z-10">
 	<div
-		class="absolute z-10 top-0 left-1/2 -translate-x-1/2 transition-colors -translate-y-[84%] w-[200%] aspect-square rounded-full bg-base-200"
+		class="absolute z-10 top-0 left-1/2 -translate-x-1/2 transition-colors -translate-y-[89%] w-[180%] aspect-square mask mask-pentagon bg-base-200"
+		style={y < 60 ? 'background: hsl(var(--b1))' : ''}
 	/>
 	<ul
-		class="relative flex text-2xl z-20 justify-center -0 w-full [&>li:not(:last-child)]:mr-12 [&>*]transition-all [&>*]:duration-150"
+		class="relative flex text-xl z-20 justify-center -0 w-full [&>li:not(:last-child)]:mr-12 [&>*]transition-all [&>*]:duration-150"
 	>
 		{#each PAGES as page}
-			<li
-				class:hover:scale-110={currentPath !== base + page.href}
-				class:scale-125={currentPath === base + page.href}
-			>
+			<li class:active={currentPath === base + page.href}>
 				<h3>
-					<a href={base + page.href}>{page.name}</a>
+					<a href={base + page.href} target={'newTab' in page && page.newTab ? '_blank' : ''}
+						>{page.name}</a
+					>
 				</h3>
 			</li>
 		{/each}
 	</ul>
 </nav>
+
+<svelte:window bind:scrollY={y} />
+
+<style>
+	li:hover {
+		scale: 1.1;
+	}
+
+	li.active,
+	li.active:hover {
+		scale: 1.25;
+	}
+</style>

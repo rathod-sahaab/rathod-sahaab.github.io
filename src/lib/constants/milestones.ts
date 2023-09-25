@@ -16,7 +16,7 @@ export const MILESTONES: TMilestone[] = [
   },
   {
     title: 'Google Summer of Code',
-    description: 'Worked on the open source project Inkscape',
+    description: 'Worked on the open source graphics app: Inkscape. Initially thought it to primarily feature project but ended up being an <b>architectural problem</b>',
     date: {
       start: 'May 2021',
       end: 'July 2021',
