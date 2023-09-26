@@ -9,7 +9,7 @@
 			<h3 class="text-3xl">Timeline.</h3>
 			<span class="text-xl opacity-80 tooltip hover:underline"> /ˈtaɪmlaɪn/ </span>
 		</div>
-		<ul class="[&>*:not(:last-child)]:pb-8">
+		<ul class="p-4 [&>*:not(:last-child)]:pb-8">
 			{#each MILESTONES as milestone}
 				<Milestone {milestone} />
 			{/each}
