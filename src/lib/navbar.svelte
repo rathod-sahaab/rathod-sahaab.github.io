@@ -22,12 +22,16 @@
 		style={y < 60 ? 'background: hsl(var(--b1))' : ''}
 	/>
 	<ul
-		class="relative flex text-xl z-20 justify-center -0 w-full [&>li:not(:last-child)]:mr-12 [&>*]transition-all [&>*]:duration-150"
+		class="relative flex text-xl z-20 justify-center -0 w-full [&>li:not(:last-child)]:mr-6 sm:[&>li:not(:last-child)]:mr-12 [&>*]transition-all [&>*]:duration-150"
 	>
 		{#each PAGES as page}
-			<li class:active={currentPath === base + page.href}>
+			<li
+				class:active={page.href.startsWith('/') &&
+					(currentPath === base + page.href || currentPath + '/' === base + page.href)}
+			>
 				<h3>
-					<a {...page} href={page.href[0] === '/' ? base + page.href : page.href}>
+					<!-- prepend base if relative url -->
+					<a {...page} href={page.href.startsWith('/') ? base + page.href : page.href}>
 						{page.name}
 					</a>
 				</h3>
@@ -40,11 +44,12 @@
 
 <style>
 	li:hover {
-		scale: 1.1;
+		scale: 1.2;
 	}
 
-	li.active,
-	li.active:hover {
+	li.active {
 		scale: 1.25;
+		text-decoration: underline;
+		text-underline-offset: 20%;
 	}
 </style>
