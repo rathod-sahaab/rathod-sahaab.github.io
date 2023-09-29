@@ -34,14 +34,14 @@
 				<h3>
 					<!-- prepend base if relative url -->
 					<a
-						class="whitespace-nowrap [&:hover>*]:max-w-[1em] [&>*]:transition-all"
+						class="whitespace-nowrap [&>*]:transition-all [&>*]:max-w-0 [&:hover>*]:max-w-[1em]"
 						{...page}
 						href={page.href.startsWith('/') ? base + page.href : page.href}
 					>
 						{#if page.type === 'external'}
-							<ExternalLink class="max-w-0 inline" />
+							<ExternalLink class="inline" />
 						{:else if page.type === 'download'}
-							<IconDownload class="max-w-0 inline" />
+							<IconDownload class="inline" />
 						{/if}
 						{page.name}
 					</a>
