@@ -9,17 +9,21 @@
 	let activeTag: ITechnologyTag = 'all'
 
 	function setTag(tag: ITechnologyTag) {
-		activeTag = tag
+		if (activeTag !== tag) {
+			activeTag = tag
+			return
+		}
+		activeTag = 'all'
 	}
 
 	$: projects = PROJECTS.filter(
 		(project) => activeTag === 'all' || project.tagIds.includes(activeTag),
-	)
+	).sort((a, b) => a.priority - b.priority)
 </script>
 
 <section class="py-24 flex flex-col items-center [&>*:not(:last-child)]:mb-10">
 	<TechnologyFilter {activeTag} {setTag} />
 	{#each projects as project}
-		<Project {project} />
+		<Project {project} {activeTag} />
 	{/each}
 </section>

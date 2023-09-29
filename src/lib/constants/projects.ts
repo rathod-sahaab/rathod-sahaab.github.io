@@ -53,4 +53,24 @@ export const PROJECTS: {
       priority: 199,
       image: dartBoardPng,
     },
-  ] 
+  ]
+
+type ITechnologyProjectCount = { [K in ITechnologyTag]: number }
+
+export const TAG_PROJECTS_COUNT_MAP = PROJECTS.reduce<ITechnologyProjectCount>(
+  (projectsAcc, project) => {
+    const tags = new Set<ITechnologyTag>(project.tagIds)
+
+    console.log({ projectsAcc, project })
+
+    return [...tags].reduce(
+      (tagsAcc, tag) => ({
+        ...tagsAcc,
+        [tag]: (tagsAcc[tag] ?? 0) + 1,
+      }),
+      projectsAcc,
+    )
+  },
+  { all: PROJECTS.length } as ITechnologyProjectCount,
+)
+
