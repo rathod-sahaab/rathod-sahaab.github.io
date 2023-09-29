@@ -5,6 +5,7 @@
 
 	export let project: (typeof PROJECTS)[number]
 	export let activeTag: ITechnologyTag
+	export let setTag: (tag: ITechnologyTag) => void
 </script>
 
 <div class="max-w-[512px] w-[93%]">
@@ -21,15 +22,19 @@
 	<p class="mb-4">{project.description}</p>
 	<ul>
 		{#each project.tagIds as tag}
-			<li class="btn btn-sm rounded-sm mr-2 normal-case" class:active={activeTag === tag}>
+			<button
+				class="btn btn-sm rounded-sm mr-2 normal-case"
+				class:active={activeTag === tag}
+				on:click={() => setTag(tag)}
+			>
 				{TECHNOLOGY_MAP[tag]}
-			</li>
+			</button>
 		{/each}
 	</ul>
 </div>
 
 <style>
-	li.active {
+	button.active {
 		border: 2px solid hsl(var(--bc));
 	}
 </style>

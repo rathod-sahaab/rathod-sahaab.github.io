@@ -24,6 +24,6 @@
 <section class="py-24 flex flex-col items-center [&>*:not(:last-child)]:mb-10">
 	<TechnologyFilter {activeTag} {setTag} />
 	{#each projects as project}
-		<Project {project} {activeTag} />
+		<Project {project} {activeTag} {setTag} />
 	{/each}
 </section>
