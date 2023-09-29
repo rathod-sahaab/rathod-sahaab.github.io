@@ -5,6 +5,8 @@
 	import { PAGES } from '$lib/constants/pages'
 	import { afterNavigate } from '$app/navigation'
 	import { base } from '$app/paths'
+	import ExternalLink from '../routes/projects/external-link.svelte'
+	import IconDownload from '~icons/line-md/downloading-loop'
 
 	let currentPath: string = PAGES[0].href
 
@@ -31,7 +33,16 @@
 			>
 				<h3>
 					<!-- prepend base if relative url -->
-					<a {...page} href={page.href.startsWith('/') ? base + page.href : page.href}>
+					<a
+						class="whitespace-nowrap [&:hover>*]:max-w-[1em] [&>*]:transition-all"
+						{...page}
+						href={page.href.startsWith('/') ? base + page.href : page.href}
+					>
+						{#if page.type === 'external'}
+							<ExternalLink class="max-w-0 inline" />
+						{:else if page.type === 'download'}
+							<IconDownload class="max-w-0 inline" />
+						{/if}
 						{page.name}
 					</a>
 				</h3>
@@ -51,5 +62,15 @@
 		scale: 1.25;
 		text-decoration: underline;
 		text-underline-offset: 20%;
+	}
+
+	li .icon {
+		opacity: 0;
+		max-width: 0;
+	}
+
+	li:hover .icon {
+		opacity: 1;
+		max-width: 1em;
 	}
 </style>

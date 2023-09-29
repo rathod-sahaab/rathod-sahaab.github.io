@@ -14,7 +14,7 @@
 	</div>
 	<a href={project.link} target="_blank">
 		<h3 class="text-xl font-bold my-2">
-			<ExternalLink />
+			<ExternalLink class="inline" />
 			{project.title}
 			<!-- <IconExternalLink class="inline" /> -->
 		</h3>
