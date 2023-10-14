@@ -1,8 +1,8 @@
-export const SKILL_TAGS = ['languages', 'frameworks', 'concepts', 'tools'];
+export const SKILL_TAGS = ['languages', 'frameworks', 'concepts', 'tools'] as const;
 
 export type ISkillTag = (typeof SKILL_TAGS)[number];
 
-export const SKILLS: readonly {
+export type ISkill = {
   name: string,
   tag: ISkillTag,
   description: string,
@@ -15,7 +15,9 @@ export const SKILLS: readonly {
     certification: string,
     link: string,
   }[],
-}[] = [
+}
+
+export const SKILLS: readonly ISkill[] = [
   {
     name: 'C++',
     tag: 'languages',

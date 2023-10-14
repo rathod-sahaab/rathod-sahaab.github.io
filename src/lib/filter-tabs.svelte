@@ -2,12 +2,12 @@
 	export let activeTag: T
 	export let setTag: (tag: T) => void
 
-	export let tags: T[]
+	export let tags: T[] | readonly T[]
 	export let tagHumanStringMap: Record<T, string>
 	export let tagInstanceCountMap: Record<T, number | undefined>
 </script>
 
-<div class="p-8 max-w-screen-md">
+<div class="p-4 max-w-screen-md">
 	{#each tags as tag}
 		<button
 			class="btn btn-sm rounded-sm m-1 normal-case"

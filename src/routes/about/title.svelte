@@ -20,12 +20,8 @@
 			</div>
 			<p class="text-2xl pt-6">
 				An engineer who loves to build things. Specializing in <b>backend engineering</b>, and
-				aiming for proficiency in <em>all-stack</em>, a fancy way of saying
+				aiming for proficiency in <em>all-stack</em>, a fancy way to say
 				<a class="underline italic" href="https://abhay.rs/blog">everything engineering</a>.
-			</p>
-			<p class="text-2xl pt-6 font-[Rwundu]">
-				Distinctive skills include debugging, problem solving, and simplification. Distinctive
-				traits include curiosity, creativity, and critical thinking.
 			</p>
 		</div>
 	</div>
