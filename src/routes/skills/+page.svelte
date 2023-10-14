@@ -7,10 +7,29 @@
 		SKILLS_CATEGORY_COUNT_MAP,
 	} from '$lib/constants/skills'
 	import FilterTabs from '$lib/filter-tabs.svelte'
+	import { getTagFromQuery, removeQueryParam, setQueryParams } from '$lib/query'
+	import { onMount } from 'svelte'
 	import Skill from './skill.svelte'
 
+	const SKILL_FILTER_QUERY_PARAM = 'tech' as const
+
 	let activeTag: ISkillTag = 'languages'
-	let setTag = (tag: ISkillTag) => (activeTag = tag)
+	function setTag(tag: ISkillTag) {
+		if (activeTag !== tag) {
+			setQueryParams({ key: SKILL_FILTER_QUERY_PARAM, value: tag })
+			activeTag = tag
+			return
+		}
+	}
+
+	onMount(() => {
+		const tag = getTagFromQuery({ key: SKILL_FILTER_QUERY_PARAM }) as ISkillTag
+		if (tag && SKILL_TAGS.includes(tag)) {
+			activeTag = tag
+		} else {
+			removeQueryParam({ key: SKILL_FILTER_QUERY_PARAM })
+		}
+	})
 
 	$: skills = SKILLS.filter((skill) => skill.tag === activeTag)
 </script>
