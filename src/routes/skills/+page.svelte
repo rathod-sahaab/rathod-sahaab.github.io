@@ -15,6 +15,10 @@
 	$: skills = SKILLS.filter((skill) => skill.tag === activeTag)
 </script>
 
+<svelte:head>
+	<title>Skills | Abhay.RS</title>
+</svelte:head>
+
 <!-- TODO: Skill tree -->
 <section class="pt-24">
 	<div class="flex justify-center items-center mb-12">

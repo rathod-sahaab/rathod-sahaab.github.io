@@ -4,6 +4,10 @@
 	import Title from './about/title.svelte'
 </script>
 
+<svelte:head>
+	<title>About | Abhay.RS</title>
+</svelte:head>
+
 <Title />
 <Socials />
 <Timeline />

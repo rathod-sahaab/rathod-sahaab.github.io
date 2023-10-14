@@ -21,6 +21,10 @@
 	).sort((a, b) => a.priority - b.priority)
 </script>
 
+<svelte:head>
+	<title>Projects | Abhay.RS</title>
+</svelte:head>
+
 <section class="py-24 flex flex-col items-center [&>*:not(:last-child)]:mb-10">
 	<TechnologyFilter {activeTag} {setTag} />
 	{#each projects as project}
