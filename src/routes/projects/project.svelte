@@ -9,8 +9,8 @@
 </script>
 
 <div class="max-w-[512px] w-[93%]">
-	<div>
-		<img class="w-full rounded-lg border-2 border-base-300" alt={project.alt} src={project.image} />
+	<div class="w-full aspect-video rounded-lg border-2 border-base-300 skeleton">
+		<img class="w-full rounded-lg" alt={project.alt} src={project.image} />
 	</div>
 	<a href={project.link} target="_blank">
 		<h3 class="text-xl font-bold my-2">
