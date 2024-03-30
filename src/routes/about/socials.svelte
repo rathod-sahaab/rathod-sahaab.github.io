@@ -1,7 +1,8 @@
 <script>
 	import GithubLooper from '~icons/line-md/github-loop'
-	import Linkedin from '~icons/devicon/linkedin'
-	import Twitter from '~icons/devicon/twitter'
+	import Linkedin from '~icons/mdi/linkedin'
+	import Twitter from '~icons/pajamas/twitter'
+	import IconLink from './socials/icon-link.svelte'
 </script>
 
 <section class="py-12 bg-base-100 flex justify-center">
@@ -11,31 +12,22 @@
 			<span class="text-xl opacity-80 tooltip hover:underline"> /sō′shəls/ </span>
 		</div>
 		<ul
-			class="p-4 flex flex-row justify-center items-center [&>*:not(:last-child)]:mr-8 [&>*]:inline-block"
+			class="p-4 flex flex-row justify-center items-center [&>*:not(:last-child)]:mr-2 [&>*]:inline-block"
 		>
 			<li>
-				<a
-					href="https://github.com/rathod-sahaab"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-2xl font-bold hover:underline"><GithubLooper /></a
-				>
+				<IconLink href="https://github.com/rathod-sahaab" text="rathod-sahaab">
+					<GithubLooper />
+				</IconLink>
 			</li>
 			<li>
-				<a
-					href="https://linkedin.com/in/rathod-sahaab"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-2xl font-bold hover:underline"><Linkedin /></a
-				>
+				<IconLink href="https://linkedin.com/in/rathod-sahaab" text="rathod-sahaab">
+					<Linkedin />
+				</IconLink>
 			</li>
 			<li>
-				<a
-					href="https://twitter.com/swayambhu_dev"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-2xl font-bold hover:underline"><Twitter /></a
-				>
+				<IconLink href="https://twitter.com/swayambhu_dev" text="swayambhu_dev">
+					<Twitter />
+				</IconLink>
 			</li>
 		</ul>
 		<div />

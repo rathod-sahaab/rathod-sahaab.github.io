@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {
+			transitionProperty: {
+				'max-height': 'max-height',
+				'max-width': 'max-width',
+			},
+		},
 	},
 	plugins: [require('daisyui')],
 	daisyui: {

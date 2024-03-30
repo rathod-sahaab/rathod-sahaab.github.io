@@ -21,7 +21,7 @@
 <nav class="fixed top-0 left-1/2 -translate-x-1/2 p-4 z-10">
 	<div
 		class="absolute z-10 top-0 left-1/2 -translate-x-1/2 transition-colors -translate-y-[89%] w-[180%] aspect-square mask mask-pentagon bg-base-200"
-		style={y < 60 ? 'background: hsl(var(--b1))' : ''}
+		style={y < 60 ? 'background: transparent' : ''}
 	/>
 	<ul
 		class="relative flex text-xl z-20 justify-center -0 w-full [&>li:not(:last-child)]:mr-6 sm:[&>li:not(:last-child)]:mr-12 [&>*]transition-all [&>*]:duration-150"
