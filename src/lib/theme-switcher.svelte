@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte'
 	import LineMdMoonFilledAltToSunnyFilledLoopTransition from '~icons/line-md/moon-filled-alt-to-sunny-filled-loop-transition'
 	import LineMdSunnyFilledLoopToMoonFilledLoopTransition from '~icons/line-md/sunny-filled-loop-to-moon-filled-loop-transition'
-	import TokenBrandedRainbow from '~icons/token-branded/rainbow'
+	import EvaColorPaletteOutline from '~icons/eva/color-palette-outline'
 
 	const DAISY_THEMES = [
 		'cupcake',
@@ -75,7 +75,7 @@
 
 <button
 	on:click={toggleTheme}
-	class="btn btn-ghost btn-circle text-2xl fixed top-4 right-4 z-50"
+	class="btn btn-ghost btn-circle text-2xl fixed bottom-20 md:top-4 right-4 z-50"
 	aria-label="Toggle dark/light theme"
 	title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
 >
@@ -91,5 +91,5 @@
 	aria-label="Cycle DaisyUI rainbow themes"
 	title={'Colorful mode'}
 >
-	<TokenBrandedRainbow />
+	<EvaColorPaletteOutline />
 </button>
