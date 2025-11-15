@@ -2,8 +2,25 @@
 	import type { TMilestone } from '$lib/constants/milestones'
 
 	export let milestone: TMilestone
-	const active: boolean =
-		typeof milestone.date !== 'string' ? milestone.date.end.toLowerCase() === 'present' : false
+	const active: boolean = milestone.date.end === null
+
+	function formatDate(date: Date): string {
+		return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+	}
+
+	function calculateDuration(start: Date, end: Date | null): string {
+		const endDate = end || new Date()
+		const diffTime = Math.abs(endDate.getTime() - start.getTime())
+		const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+		const months = Math.ceil(diffDays / 30)
+		const years = Math.floor(months / 12)
+
+		if (years > 0) {
+			const remainingMonths = months % 12
+			return remainingMonths > 0 ? `${years} years ${remainingMonths} months` : `${years}y`
+		}
+		return `${months} months`
+	}
 </script>
 
 <div class="milestone pl-4 border-l-base-content border-dotted border-l-[3px]" class:active>
@@ -11,16 +28,21 @@
 		class="title before:bg-base-100 after:bg-base-content before:border-2 before:border-base-content"
 		class:active
 	>
-		<h5 class="text-lg font-bold">{milestone.title}</h5>
+		<div>
+			<h5 class="text-lg font-bold inline">{milestone.title}</h5>
+			<span class="ml-2 italic"> {milestone.role} </span>
+		</div>
+
 		<span class="italic">
-			{#if typeof milestone.date !== 'string'}
-				{milestone.date.start} - {milestone.date.end}
-			{:else}
-				{milestone.date}
-			{/if}
+			{formatDate(milestone.date.start)} - {milestone.date.end
+				? formatDate(milestone.date.end)
+				: 'Present'}
+		</span>
+		<span class="ml-4 italic text-sm text-base-content/50">
+			({calculateDuration(milestone.date.start, milestone.date.end)})
 		</span>
 	</div>
-	<p class="pt-2">
+	<p class="pt-4 pl-4">
 		{@html milestone.description}
 	</p>
 	<p><slot /></p>
