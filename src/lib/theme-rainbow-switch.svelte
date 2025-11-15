@@ -14,6 +14,8 @@
 		'halloween',
 		'garden',
 		'forest',
+		'light',
+		'dark',
 		'aqua',
 		'lofi',
 		'pastel',
